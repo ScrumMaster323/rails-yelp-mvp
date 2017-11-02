@@ -1,0 +1,19 @@
+<h1>These are the restaurants</h1>
+<h3><%= link_to "Add a restaurant", new_restaurant_path %></h3>
+
+<ul>
+<% @restaurants.each do |resto| %>
+  <li>
+    <h2><%= resto.name %></h2>
+    <p><%= resto.address %></p>
+    <p><%= resto.phone_number %></p>
+    <p><%= resto.category %></p>
+    <%= link_to 'More info', restaurant_path(resto) %>
+    <%= link_to "Add a review", new_restaurant_review_path(resto) %>
+    <%= link_to "Edit restaurant", edit_restaurant_path(resto) %>
+    <%= link_to 'Remove restaurant', restaurant_path(resto), method: :delete %>
+
+    <% end %>
+  </li>
+</ul>
+
